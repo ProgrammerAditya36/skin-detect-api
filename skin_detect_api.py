@@ -16,6 +16,9 @@ def predict_skin_detect(request: SkinDetectRequest):
     predicted_class_name = class_names[predicted_class_index]
     result = f'Predicted class: {predicted_class_name} with probability {predictions[0][predicted_class_index]:.4f}'
     return {"result": result}
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5000)
