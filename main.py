@@ -14,8 +14,8 @@ def predict_skin_detect(request: SkinDetectRequest):
     class_names = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis-like lesions', 'Dermatofibroma', 'Melanoma', 'Melanocytic nevi', 'Vascular lesions']
     predicted_class_index = np.argmax(predictions[0])
     predicted_class_name = class_names[predicted_class_index]
-    result = f'Predicted class: {predicted_class_name} with probability {predictions[0][predicted_class_index]:.4f}'
-    return {"result": result}
+    
+    return {"result": predicted_class_name, "probability": predictions[0][predicted_class_index]}
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
