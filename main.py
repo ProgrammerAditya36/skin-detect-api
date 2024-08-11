@@ -5,11 +5,7 @@ from tensorflow.keras.models import load_model #type: ignore
 
 # Load your Keras model
 cancer_model = load_model("skin_cancer1.keras")
-try: 
-    detect_model = load_model("skin_disease1.keras")
-except:
-
-    detect_model = load_model("skin_cancer1.keras")
+detect_model = load_model("skindisease.keras")
 
 # FastAPI application
 app = FastAPI()
